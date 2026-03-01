@@ -9,54 +9,104 @@
 
 ## Przygotowanie stanowiska (zrób to PRZED ćwiczeniami)
 
-Zanim zaczniesz pracę, musisz uruchomić swoje środowisko. Wykonaj poniższe kroki w **PowerShell** (Windows) lub **terminalu** (Linux/Mac):
+Zanim zaczniesz pracę, musisz uruchomić swoje środowisko. Jeśli na zajęciach W01/L01 utworzyłeś folder `moj-projekt` z plikami `.venv`, `.gitignore`, `README.md` — to właśnie jest Twój katalog roboczy. Jeśli nie pamiętasz gdzie go masz, poszukaj folderu w którym jest podfolder `.venv`.
 
-### Windows (PowerShell)
+### Windows — krok po kroku
 
+**Krok 1: Otwórz PowerShell**
+- Naciśnij klawisz **Windows**, wpisz `PowerShell`, kliknij "Windows PowerShell"
+- Zobaczysz czarne (lub niebieskie) okno z tekstem, np.: `PS C:\Users\Anna>`
+
+**Krok 2: Przejdź do swojego folderu z projektem**
+
+Jeśli na L01 utworzyłeś folder na Pulpicie:
 ```powershell
-# 1. Przejdź do katalogu z projektem (zmień ścieżkę na swoją!)
-cd C:\Users\TwojeImie\moj-projekt
+cd ~\Desktop\moj-projekt
+```
 
-# 2. Aktywuj środowisko wirtualne
+Jeśli w Dokumentach:
+```powershell
+cd ~\Documents\moj-projekt
+```
+
+> `~` to skrót do Twojego katalogu domowego, np. `C:\Users\Anna`
+
+**Krok 3: Sprawdź czy jesteś we właściwym miejscu**
+```powershell
+ls
+```
+Powinieneś zobaczyć m.in. folder `.venv` i plik `.gitignore`:
+```
+    Directory: C:\Users\Anna\Desktop\moj-projekt
+
+Mode         Name
+----         ----
+d-----       .venv
+-a----       .gitignore
+-a----       README.md
+```
+
+Jeśli **nie widzisz `.venv`** — jesteś w złym folderze! Wróć do kroku 2.
+
+**Krok 4: Aktywuj środowisko wirtualne**
+```powershell
 .venv\Scripts\Activate.ps1
 ```
 
-Po aktywacji zobaczysz `(.venv)` przed promptem — tak powinno wyglądać:
+Po aktywacji na początku linii pojawi się `(.venv)`:
 ```
-(.venv) PS C:\Users\TwojeImie\moj-projekt>
+(.venv) PS C:\Users\Anna\Desktop\moj-projekt>
 ```
 
-Jeśli **nie widzisz** `(.venv)` — środowisko nie jest aktywne! Sprawdź:
-- Czy jesteś w dobrym katalogu? (`ls` powinno pokazać folder `.venv`)
-- Czy środowisko istnieje? Jeśli nie — utwórz je: `uv venv`
-- Błąd "execution policy"? → `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+Jeśli widzisz `(.venv)` — środowisko jest aktywne.
+
+Jeśli widzisz **błąd "cannot be loaded because running scripts is disabled"**:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+Potem spróbuj ponownie: `.venv\Scripts\Activate.ps1`
+
+**Krok 5: Sprawdź czy pakiety działają**
+```powershell
+python -c "import pandas; import matplotlib; print('Wszystko dziala!')"
+```
+
+Powinieneś zobaczyć:
+```
+Wszystko dziala!
+```
+
+Jeśli widzisz `ModuleNotFoundError` — zainstaluj pakiety:
+```powershell
+uv pip install numpy pandas matplotlib jupyter ipykernel
+```
+
+**Krok 6: Otwórz VS Code**
+```powershell
+code .
+```
+
+> Kropka `.` oznacza "otwórz VS Code w tym folderze, w którym teraz jestem". VS Code otworzy się i po lewej stronie (panel Explorer) zobaczysz swoje pliki: `.venv`, `.gitignore`, `README.md`.
 
 ### Linux / macOS
 
 ```bash
+# Krok 1: Otwórz terminal
+# Krok 2: Przejdź do folderu z projektem
 cd ~/moj-projekt
-source .venv/bin/activate
-```
 
-### Sprawdź czy pakiety są zainstalowane
+# Krok 3: Sprawdź czy jesteś we właściwym miejscu
+ls    # powinieneś widzieć .venv, .gitignore, README.md
 
-```
-python -c "import pandas; import matplotlib; print('Wszystko działa!')"
-```
+# Krok 4: Aktywuj środowisko
+source .venv/bin/activate   # pojawi się (.venv) na początku linii
 
-Jeśli widzisz **"Wszystko działa!"** — możesz zaczynać ćwiczenia.
-Jeśli widzisz `ModuleNotFoundError` — zainstaluj pakiety:
-```
-uv pip install numpy pandas matplotlib jupyter ipykernel
-```
+# Krok 5: Sprawdź pakiety
+python -c "import pandas; import matplotlib; print('Wszystko dziala!')"
 
-### Otwórz VS Code
-
-```
+# Krok 6: Otwórz VS Code
 code .
 ```
-
-VS Code otworzy się w katalogu projektu. W panelu po lewej (Explorer) widzisz swoje pliki.
 
 ---
 
