@@ -497,7 +497,7 @@ plt.show()
 
 ### Krok 3 — Zapisz i commituj
 
-Zapisz notebook w VS Code (`Ctrl+S`), potem otwórz **terminal** w VS Code (menu: Terminal → New Terminal) lub wróć do PowerShell:
+Zapisz notebook w VS Code (`Ctrl+S`), potem otwórz **terminal** w VS Code (menu: **Terminal → New Terminal**) lub wróć do PowerShell.
 
 ```powershell
 # Windows (PowerShell)
@@ -513,7 +513,51 @@ git commit -m "L02: eksploracja datasetu tips — pipeline analityczny"
 git push
 ```
 
-Jeśli `git push` pyta o login/hasło — wpisz swoją nazwę użytkownika GitHub i **token** (nie hasło!). Instrukcja tworzenia tokena: [jak_pracowac.md na GitHubie](https://github.com/sp6jaz/python2-materialy/blob/master/dzienne/tydzien-01/wyklad/jak_pracowac.md)
+Jeśli `git push` pyta o **Username** i **Password**:
+- **Username:** Twój login na GitHub (np. `jan-kowalski`)
+- **Password:** wklej swój **Personal Access Token** (NIE hasło do konta GitHub!)
+- Nie masz tokena? Instrukcja: [jak_pracowac.md na GitHubie](https://github.com/sp6jaz/python2-materialy/blob/master/dzienne/tydzien-01/wyklad/jak_pracowac.md)
+
+### ⚠️ Błąd 403 przy `git push`? (częste na komputerach uczelnianych)
+
+Na komputerach w laboratorium **wiele osób loguje się na to samo konto Windows** (np. `student`). Windows zapamiętuje dane logowania do GitHuba **pierwszej osoby, która zrobiła push** — i potem blokuje wszystkich pozostałych błędem:
+
+```
+remote: Permission to [czyjes-repo] denied to [ktos-inny].
+fatal: unable to access ... : The requested URL returned error: 403
+```
+
+**Rozwiązanie — uruchom skrypt naprawczy:**
+
+W repozytorium z materiałami kursu jest gotowy skrypt. W PowerShell:
+```powershell
+cd ~\Desktop\python2-materialy
+.\git-fix-windows.bat
+```
+
+Skrypt:
+1. Wyczyści zapamiętane dane logowania do GitHuba z tego komputera
+2. Zapyta o Twoje imię i email (do commitów)
+3. Wyłączy zapamiętywanie haseł — od teraz **każdy push będzie pytał o token** (bezpieczniej na uczelni)
+
+Po uruchomieniu skryptu wróć do folderu ze swoim projektem i spróbuj ponownie:
+```powershell
+cd ~\Desktop\moj-projekt
+git push
+```
+
+**Nie masz skryptu?** Możesz zrobić to ręcznie w PowerShell:
+```powershell
+# 1. Wyczyść zapisane hasła do GitHuba
+cmdkey /delete:git:https://github.com
+# 2. Ustaw swoje dane
+git config --global user.name "Twoje Imie Nazwisko"
+git config --global user.email "twoj@email.com"
+# 3. Wyłącz zapamiętywanie
+git config --global --unset credential.helper
+# 4. Spróbuj ponownie
+git push
+```
 
 ### Sprawdzenie ✅
 

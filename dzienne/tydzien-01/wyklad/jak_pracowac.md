@@ -364,7 +364,8 @@ Ostatnia komórka (Markdown): ## Podsumowanie
 
 | Problem | Rozwiązanie |
 |---------|-------------|
-| `git push` odmawia (403/401) | Token wygasł → wygeneruj nowy na GitHub |
+| `git push` odmawia (403) — **komputer uczelniany** | Windows zapamiętał dane innej osoby. Uruchom `git-fix-windows.bat` z repozytorium materiałów (albo ręcznie: `cmdkey /delete:git:https://github.com` w PowerShell, potem `git config --global --unset credential.helper`). Następnie `git push` — poda Twój login i token. |
+| `git push` odmawia (401) — **własny komputer** | Token wygasł lub jest błędny → wygeneruj nowy: GitHub → Settings → Developer settings → Personal access tokens → zaznacz `repo` → skopiuj |
 | "Not a git repository" | Jesteś w złym katalogu → `cd ~/python2-lab` |
 | Notebook nie widzi bibliotek | Nie aktywowałeś venv → `source .venv/bin/activate` |
 | `.venv` trafił do repo | Dodaj do `.gitignore`, potem: `git rm -r --cached .venv/` |
