@@ -97,28 +97,21 @@ uv pip install numpy pandas matplotlib jupyter ipykernel
 
 **Krok 6: Zainstaluj wtyczki VS Code (jednorazowo)**
 
-VS Code potrzebuje wtyczek do obsługi Pythona, Jupytera i Gita. W repozytorium z materiałami kursu jest skrypt, który zainstaluje je automatycznie:
+VS Code potrzebuje wtyczek do obsługi Pythona, Jupytera i Gita. W repozytorium z materiałami kursu jest skrypt, który zainstaluje je automatycznie. **Nie musisz nigdzie przechodzić** — uruchom go pełną ścieżką:
 
 ```powershell
-cd ~\Desktop\python2-materialy
-.\vscode-extensions.bat
+~\Desktop\python2-materialy\vscode-extensions.bat
 ```
 
 Skrypt zainstaluje 14 rozszerzeń (Python, Jupyter, Markdown, Git) — poczekaj aż się zakończy. Na koniec zobaczysz podsumowanie ile się zainstalowało.
 
-> **Nie masz repozytorium z materiałami?** Sklonuj je:
+> **Nie masz repozytorium z materiałami?** Sklonuj je (bez wychodzenia z folderu projektu):
 > ```powershell
-> cd ~\Desktop
-> git clone https://github.com/sp6jaz/python2-materialy.git
+> git clone https://github.com/sp6jaz/python2-materialy.git ~\Desktop\python2-materialy
 > ```
-> Potem wróć do kroku 6.
+> Potem uruchom skrypt jak wyżej.
 
 > **Już instalowałeś wtyczki wcześniej?** Możesz pominąć ten krok. Skrypt i tak nie zepsuje niczego — po prostu poinformuje, że rozszerzenia już są.
-
-Po zakończeniu **wróć do swojego folderu z projektem**:
-```powershell
-cd ~\Desktop\moj-projekt
-```
 
 **Krok 7: Otwórz VS Code**
 ```powershell
@@ -144,9 +137,7 @@ source .venv/bin/activate   # pojawi się (.venv) na początku linii
 python -c "import pandas; import matplotlib; print('Wszystko dziala!')"
 
 # Krok 6: Zainstaluj wtyczki VS Code (jednorazowo)
-# Jeśli jeszcze nie masz repozytorium z materiałami:
-# cd ~ && git clone https://github.com/sp6jaz/python2-materialy.git
-# Uruchom instalację ręcznie (skrypt .bat jest tylko dla Windows):
+# Skrypt .bat jest dla Windows — na Linuxie uruchom ręcznie:
 code --install-extension ms-python.python
 code --install-extension ms-toolsai.jupyter
 code --install-extension eamodio.gitlens
