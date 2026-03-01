@@ -11,13 +11,13 @@
 
 Zanim zaczniesz pracę, musisz uruchomić swoje środowisko.
 
-**Gdzie jest mój folder z projektem?** Na zajęciach L01 utworzyłeś folder (np. `moj-projekt`) z plikami `.venv`, `.gitignore`, `README.md`. Jeśli nie pamiętasz gdzie go masz — poszukaj folderu `.venv` na dysku.
+**Gdzie jest mój folder z projektem?** Na zajęciach L01 utworzyłeś folder `python2-lab` (komendą `mkdir python2-lab`). Powinien zawierać: `.venv`, `.gitignore`, `README.md`. Jeśli nie pamiętasz gdzie go masz — poszukaj folderu `python2-lab` na Pulpicie lub w Dokumentach.
 
 **Nie byłeś na L01 / nie masz folderu?** Utwórz go teraz:
 ```powershell
 cd ~\Desktop
-mkdir moj-projekt
-cd moj-projekt
+mkdir python2-lab
+cd python2-lab
 uv venv
 .venv\Scripts\Activate.ps1
 uv pip install numpy pandas matplotlib jupyter ipykernel
@@ -27,7 +27,7 @@ Pełna instrukcja: [01_srodowisko_pracy.md na GitHubie](https://github.com/sp6ja
 
 ### Windows — krok po kroku
 
-Cały flow odbywa się **w folderze, który utworzyłeś na L01** — np. `C:\Users\Anna\Desktop\moj-projekt` (tam gdzie masz `.venv`, `.gitignore`, `README.md`). Wchodzisz do niego w kroku 2 i **nigdzie nie wychodzisz** aż do końca.
+Cały flow odbywa się **w folderze `python2-lab`**, który utworzyłeś na L01 — np. `C:\Users\Anna\Desktop\python2-lab`. Wchodzisz do niego w kroku 2 i **nigdzie nie wychodzisz** aż do końca.
 
 **Krok 1: Otwórz PowerShell**
 - Naciśnij klawisz **Windows**, wpisz `PowerShell`, kliknij "Windows PowerShell"
@@ -37,12 +37,12 @@ Cały flow odbywa się **w folderze, który utworzyłeś na L01** — np. `C:\Us
 
 Jeśli na L01 utworzyłeś folder na Pulpicie:
 ```powershell
-cd ~\Desktop\moj-projekt
+cd ~\Desktop\python2-lab
 ```
 
 Jeśli w Dokumentach:
 ```powershell
-cd ~\Documents\moj-projekt
+cd ~\Documents\python2-lab
 ```
 
 > `~` to skrót do Twojego katalogu domowego, np. `C:\Users\Anna`
@@ -53,7 +53,7 @@ ls
 ```
 Powinieneś zobaczyć m.in. folder `.venv` i plik `.gitignore`:
 ```
-    Directory: C:\Users\Anna\Desktop\moj-projekt
+    Directory: C:\Users\Anna\Desktop\python2-lab
 
 Mode         Name
 ----         ----
@@ -71,7 +71,7 @@ Jeśli **nie widzisz `.venv`** — jesteś w złym folderze! Wróć do kroku 2.
 
 Po aktywacji na początku linii pojawi się `(.venv)`:
 ```
-(.venv) PS C:\Users\Anna\Desktop\moj-projekt>
+(.venv) PS C:\Users\Anna\Desktop\python2-lab>
 ```
 
 Jeśli widzisz `(.venv)` — środowisko jest aktywne.
@@ -127,7 +127,7 @@ code .
 ```bash
 # Krok 1: Otwórz terminal
 # Krok 2: Przejdź do folderu z projektem
-cd ~/moj-projekt
+cd ~/python2-lab
 
 # Krok 3: Sprawdź czy jesteś we właściwym miejscu
 ls    # powinieneś widzieć .venv, .gitignore, README.md
@@ -569,7 +569,7 @@ Skrypt:
 
 Po uruchomieniu skryptu wróć do folderu ze swoim projektem i spróbuj ponownie:
 ```powershell
-cd ~\Desktop\moj-projekt
+cd ~\Desktop\python2-lab
 git push
 ```
 
