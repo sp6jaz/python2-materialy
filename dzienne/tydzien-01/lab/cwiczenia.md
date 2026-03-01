@@ -378,23 +378,13 @@ print(f"Odchylenie standardowe: {dane.std():.2f}")
 Przygotuj repozytorium na pracę przez cały semestr — foldery na laboratoria + udostępnienie prowadzącemu.
 
 ### Krok 1 — Utwórz foldery na wszystkie laboratoria
-**Linux**
+
 ```bash
 cd ~/python2-lab
 
 # Utwórz foldery na każde laboratorium + projekt
 mkdir -p lab01 lab02 lab03 lab04 lab05 lab06 lab07 lab08 lab09 lab10 lab11 lab12 lab13 lab14 projekt
 ```
-
-**Windows (PowerShell)**
-```powershell
-cd ~/python2-lab
-
-# Utwórz foldery na każde laboratorium + projekt
-mkdir lab01,lab02,lab03,lab04,lab05,lab06,lab07,lab08,lab09,lab10,lab11,lab12,lab13,lab14,projekt
-```
-
-
 
 ### Krok 2 — Przenieś dotychczasowe pliki
 
@@ -476,7 +466,7 @@ Pełna instrukcja: **jak_pracowac.md** (do pobrania z Moodle)
 | Problem | Rozwiązanie |
 |---------|-------------|
 | `python: command not found` | Dodaj Python do PATH. Windows: zainstaluj ponownie z python.org zaznaczając "Add to PATH" |
-| `uv: command not found` | Zainstaluj uv ponownie: `curl -LsSf https://astral.sh/uv/install.sh \| sh` (Linux/Mac) lub `powershell -c "irm https://astral.sh/uv/install.ps1 \| iex"` (Windows) |
+| `uv: command not found` | **Windows:** zamknij i otwórz ponownie PowerShell (PATH się odświeży). Jeśli nadal nie działa — zainstaluj ponownie: `powershell -c "irm https://astral.sh/uv/install.ps1 \| iex"`. **Linux/Mac:** `curl -LsSf https://astral.sh/uv/install.sh \| sh`, potem `source ~/.bashrc` |
 | `(.venv)` nie pojawia się przed promptem | Upewnij się, że wykonałeś `source .venv/bin/activate` (Linux/Mac) lub `.venv\Scripts\activate` (Windows) |
 | `git: command not found` | Zainstaluj Git: https://git-scm.com/download |
 | VS Code nie widzi Pythona z venv | W VS Code: Ctrl+Shift+P → "Python: Select Interpreter" → wybierz `.venv` |

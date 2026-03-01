@@ -54,7 +54,7 @@ python3 --version
 powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
 ```
 
-Po instalacji zamknij i otwórz ponownie PowerShell.
+**WAŻNE: Po instalacji ZAMKNIJ PowerShell i otwórz go ponownie!** Bez tego polecenie `uv` nie będzie rozpoznawane — instalator dodaje ścieżkę do PATH, ale istniejące okna terminala tego nie widzą.
 
 ### Linux / macOS
 
@@ -271,7 +271,14 @@ code .
 → Reinstaluj Pythona z zaznaczonym **"Add Python to PATH"**
 
 ### Windows: "uv nie jest rozpoznawany"
-→ Zamknij i otwórz ponownie PowerShell po instalacji uv
+→ Zamknij **wszystkie** okna PowerShell/terminala i otwórz nowe. Instalator dodaje `uv` do PATH, ale już otwarte terminale tego nie widzą. Jeśli po restarcie terminala nadal nie działa, sprawdź czy `uv.exe` istnieje:
+```powershell
+Test-Path "$env:USERPROFILE\.local\bin\uv.exe"
+```
+Jeśli zwraca `True` — dodaj ręcznie do PATH:
+```powershell
+$env:Path += ";$env:USERPROFILE\.local\bin"
+```
 
 ### Windows: ".venv\Scripts\Activate.ps1 nie można uruchomić"
 → Uruchom PowerShell jako Administrator i wpisz:
