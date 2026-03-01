@@ -7,143 +7,39 @@
 
 ---
 
-## Przygotowanie stanowiska (zrób to PRZED ćwiczeniami)
+## Przygotowanie stanowiska
 
-Zanim zaczniesz pracę, musisz uruchomić swoje środowisko.
+Na L01 utworzyłeś folder `python2-lab` i zainstalowałeś w nim środowisko. Teraz wystarczą **4 komendy** żeby zacząć pracę.
 
-**Gdzie jest mój folder z projektem?** Na zajęciach L01 utworzyłeś folder `python2-lab` (komendą `mkdir python2-lab`). Powinien zawierać: `.venv`, `.gitignore`, `README.md`. Jeśli nie pamiętasz gdzie go masz — poszukaj folderu `python2-lab` na Pulpicie lub w Dokumentach.
+### Windows
 
-**Nie byłeś na L01 / nie masz folderu?** Utwórz go teraz:
-```powershell
-cd ~\Desktop
-mkdir python2-lab
-cd python2-lab
-uv venv
-.venv\Scripts\Activate.ps1
-uv pip install numpy pandas matplotlib jupyter ipykernel
-git init
-```
-Pełna instrukcja: [01_srodowisko_pracy.md na GitHubie](https://github.com/sp6jaz/python2-materialy/blob/master/dzienne/tydzien-01/wyklad/01_srodowisko_pracy.md)
+Otwórz **PowerShell** (klawisz Windows → wpisz `PowerShell` → Enter) i wklej:
 
-### Windows — krok po kroku
-
-Cały flow odbywa się **w folderze `python2-lab`**, który utworzyłeś na L01 — np. `C:\Users\Anna\Desktop\python2-lab`. Wchodzisz do niego w kroku 2 i **nigdzie nie wychodzisz** aż do końca.
-
-**Krok 1: Otwórz PowerShell**
-- Naciśnij klawisz **Windows**, wpisz `PowerShell`, kliknij "Windows PowerShell"
-- Zobaczysz czarne (lub niebieskie) okno z tekstem, np.: `PS C:\Users\Anna>`
-
-**Krok 2: Przejdź do swojego folderu z projektem**
-
-Jeśli na L01 utworzyłeś folder na Pulpicie:
 ```powershell
 cd ~\Desktop\python2-lab
-```
-
-Jeśli w Dokumentach:
-```powershell
-cd ~\Documents\python2-lab
-```
-
-> `~` to skrót do Twojego katalogu domowego, np. `C:\Users\Anna`
-
-**Krok 3: Sprawdź czy jesteś we właściwym miejscu**
-```powershell
-ls
-```
-Powinieneś zobaczyć m.in. folder `.venv` i plik `.gitignore`:
-```
-    Directory: C:\Users\Anna\Desktop\python2-lab
-
-Mode         Name
-----         ----
-d-----       .venv
--a----       .gitignore
--a----       README.md
-```
-
-Jeśli **nie widzisz `.venv`** — jesteś w złym folderze! Wróć do kroku 2.
-
-**Krok 4: Aktywuj środowisko wirtualne**
-```powershell
 .venv\Scripts\Activate.ps1
-```
-
-Po aktywacji na początku linii pojawi się `(.venv)`:
-```
-(.venv) PS C:\Users\Anna\Desktop\python2-lab>
-```
-
-Jeśli widzisz `(.venv)` — środowisko jest aktywne.
-
-Jeśli widzisz **błąd "cannot be loaded because running scripts is disabled"**:
-```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
-Potem spróbuj ponownie: `.venv\Scripts\Activate.ps1`
-
-**Krok 5: Sprawdź czy pakiety działają**
-```powershell
-python -c "import pandas; import matplotlib; print('Wszystko dziala!')"
-```
-
-Powinieneś zobaczyć:
-```
-Wszystko dziala!
-```
-
-Jeśli widzisz `ModuleNotFoundError` — zainstaluj pakiety:
-```powershell
-uv pip install numpy pandas matplotlib jupyter ipykernel
-```
-
-**Krok 6: Zainstaluj wtyczki VS Code (jednorazowo)**
-
-VS Code potrzebuje wtyczek do obsługi Pythona, Jupytera i Gita. Skopiuj poniższe komendy i wklej do PowerShell:
-
-```powershell
-code --install-extension ms-python.python
-code --install-extension ms-toolsai.jupyter
-code --install-extension eamodio.gitlens
-```
-
-Każda komenda wyświetli `Extension '...' is already installed` (jeśli już masz) albo zainstaluje wtyczkę. Trwa kilka sekund.
-
-> **Robiłeś to już na poprzednich zajęciach?** Pomiń ten krok — wtyczki instaluje się raz.
-
-**Krok 7: Otwórz VS Code**
-```powershell
 code .
 ```
 
-> Kropka `.` oznacza "otwórz VS Code w tym folderze, w którym teraz jestem". VS Code otworzy się i po lewej stronie (panel Explorer) zobaczysz swoje pliki: `.venv`, `.gitignore`, `README.md`.
+Po drugiej komendzie na początku linii pojawi się `(.venv)` — to znaczy, że środowisko jest aktywne. Trzecia komenda otworzy VS Code z Twoimi plikami.
 
 ### Linux / macOS
 
 ```bash
-# Krok 1: Otwórz terminal
-# Krok 2: Przejdź do folderu z projektem
 cd ~/python2-lab
-
-# Krok 3: Sprawdź czy jesteś we właściwym miejscu
-ls    # powinieneś widzieć .venv, .gitignore, README.md
-
-# Krok 4: Aktywuj środowisko
-source .venv/bin/activate   # pojawi się (.venv) na początku linii
-
-# Krok 5: Sprawdź pakiety
-python -c "import pandas; import matplotlib; print('Wszystko dziala!')"
-
-# Krok 6: Zainstaluj wtyczki VS Code (jednorazowo)
-# Skrypt .bat jest dla Windows — na Linuxie uruchom ręcznie:
-code --install-extension ms-python.python
-code --install-extension ms-toolsai.jupyter
-code --install-extension eamodio.gitlens
-# Już instalowałeś? Pomiń ten krok.
-
-# Krok 7: Otwórz VS Code
+source .venv/bin/activate
 code .
 ```
+
+### Coś nie działa?
+
+| Problem | Rozwiązanie |
+|---------|-------------|
+| `python2-lab` nie istnieje | Nie byłeś na L01? Utwórz środowisko od nowa — instrukcja: [01_srodowisko_pracy.md](https://github.com/sp6jaz/python2-materialy/blob/master/dzienne/tydzien-01/wyklad/01_srodowisko_pracy.md) |
+| Nie widzisz `.venv` po `ls` | Jesteś w złym folderze — sprawdź czy na L01 utworzyłeś go w Dokumentach zamiast na Pulpicie: `cd ~\Documents\python2-lab` |
+| Błąd "running scripts is disabled" | Wpisz: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` i spróbuj ponownie |
+| `ModuleNotFoundError` przy imporcie | Zainstaluj pakiety: `uv pip install numpy pandas matplotlib jupyter ipykernel` |
+| VS Code nie rozpoznaje Pythona / Jupytera | Doinstaluj wtyczki: `code --install-extension ms-python.python` i `code --install-extension ms-toolsai.jupyter` |
 
 ---
 
