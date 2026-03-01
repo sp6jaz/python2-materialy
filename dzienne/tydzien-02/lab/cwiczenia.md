@@ -27,6 +27,8 @@ Pełna instrukcja: [01_srodowisko_pracy.md na GitHubie](https://github.com/sp6ja
 
 ### Windows — krok po kroku
 
+Cały flow odbywa się **w folderze, który utworzyłeś na L01** — np. `C:\Users\Anna\Desktop\moj-projekt` (tam gdzie masz `.venv`, `.gitignore`, `README.md`). Wchodzisz do niego w kroku 2 i **nigdzie nie wychodzisz** aż do końca.
+
 **Krok 1: Otwórz PowerShell**
 - Naciśnij klawisz **Windows**, wpisz `PowerShell`, kliknij "Windows PowerShell"
 - Zobaczysz czarne (lub niebieskie) okno z tekstem, np.: `PS C:\Users\Anna>`
@@ -97,21 +99,21 @@ uv pip install numpy pandas matplotlib jupyter ipykernel
 
 **Krok 6: Zainstaluj wtyczki VS Code (jednorazowo)**
 
-VS Code potrzebuje wtyczek do obsługi Pythona, Jupytera i Gita. W repozytorium z materiałami kursu jest skrypt, który zainstaluje je automatycznie. **Nie musisz nigdzie przechodzić** — uruchom go pełną ścieżką:
+VS Code potrzebuje wtyczek do obsługi Pythona, Jupytera i Gita. W repozytorium z materiałami kursu jest gotowy skrypt, który je zainstaluje. Zostań w swoim folderze — uruchom skrypt podając pełną ścieżkę:
 
 ```powershell
 ~\Desktop\python2-materialy\vscode-extensions.bat
 ```
 
-Skrypt zainstaluje 14 rozszerzeń (Python, Jupyter, Markdown, Git) — poczekaj aż się zakończy. Na koniec zobaczysz podsumowanie ile się zainstalowało.
+Poczekaj aż skrypt się zakończy (instaluje 14 rozszerzeń). Na koniec zobaczysz podsumowanie, np. `Wynik: 14 zainstalowanych, 0 bledow`.
 
-> **Nie masz repozytorium z materiałami?** Sklonuj je (bez wychodzenia z folderu projektu):
+> **Błąd „plik nie istnieje"?** Nie masz jeszcze materiałów kursu. Sklonuj je jedną komendą (nadal nie wychodząc z folderu):
 > ```powershell
 > git clone https://github.com/sp6jaz/python2-materialy.git ~\Desktop\python2-materialy
 > ```
 > Potem uruchom skrypt jak wyżej.
 
-> **Już instalowałeś wtyczki wcześniej?** Możesz pominąć ten krok. Skrypt i tak nie zepsuje niczego — po prostu poinformuje, że rozszerzenia już są.
+> **Robiłeś to już na poprzednich zajęciach?** Pomiń ten krok — wtyczki instaluje się raz.
 
 **Krok 7: Otwórz VS Code**
 ```powershell
