@@ -9,6 +9,7 @@
 | VS Code | edytor kodu + Jupyter + Git | najnowsza |
 | Git | kontrola wersji | 2.30+ |
 | GitHub | hosting repozytoriów, portfolio | konto darmowe |
+| GitHub CLI (`gh`) | logowanie i zarządzanie repo z terminala | najnowsza |
 
 ---
 
@@ -140,7 +141,35 @@ git config --global user.email "twoj@email.com"
 
 1. Wejdź na https://github.com/
 2. Załóż darmowe konto (użyj maila uczelnianego — daje dostęp do GitHub Student Pack)
-3. Opcjonalnie: skonfiguruj klucz SSH (wygodniejsze niż hasło)
+
+### GitHub CLI (`gh`) — narzędzie do pracy z GitHubem z terminala
+
+Zainstaluj `gh` — dzięki niemu nie musisz generować tokenów ani logować się przez stronę:
+
+**Windows (PowerShell):**
+```powershell
+winget install GitHub.cli
+```
+
+**Linux (Ubuntu/Debian):**
+```bash
+sudo apt install gh
+```
+
+Po instalacji **zaloguj się** — wpisz w PowerShell:
+
+```powershell
+gh auth login
+```
+
+Program zapyta krok po kroku:
+1. Where do you use GitHub? → **GitHub.com**
+2. Preferred protocol? → **HTTPS**
+3. Authenticate Git with your GitHub credentials? → **Yes**
+4. How would you like to authenticate? → **Login with a web browser**
+5. Otworzy się przeglądarka — zaloguj się na swoje konto GitHub
+
+Po tym `git push` będzie działać bez pytania o hasło ani token.
 
 ---
 
@@ -225,9 +254,19 @@ git commit -m "Inicjalizacja projektu"
 
 ### Publikacja na GitHub
 
+**Sposób 1 — przez `gh` (zalecany, prostszy):**
+
+```powershell
+gh repo create python2-lab --public --source=. --push
+```
+
+Jedna komenda: tworzy repozytorium na GitHubie, łączy je z Twoim folderem i wypycha kod.
+
+**Sposób 2 — ręcznie (jeśli nie masz `gh`):**
+
 ```bash
-# Utwórz repozytorium na GitHub (przez stronę lub gh CLI)
-git remote add origin https://github.com/TWOJ-LOGIN/moj-projekt.git
+# Utwórz repozytorium na stronie github.com, potem:
+git remote add origin https://github.com/TWOJ-LOGIN/python2-lab.git
 git push -u origin master
 ```
 
@@ -271,6 +310,8 @@ code .
 | Sprawdzić zainstalowane pakiety | `uv pip list` |
 | Nowy commit | `git add . && git commit -m "opis"` |
 | Wypchnąć na GitHub | `git push` |
+| Zalogować się do GitHuba | `gh auth login` |
+| Utworzyć repo na GitHubie | `gh repo create nazwa --public --source=. --push` |
 | Uruchomić Jupyter w przeglądarce | `jupyter notebook` |
 
 ---
