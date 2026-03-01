@@ -99,19 +99,15 @@ uv pip install numpy pandas matplotlib jupyter ipykernel
 
 **Krok 6: Zainstaluj wtyczki VS Code (jednorazowo)**
 
-VS Code potrzebuje wtyczek do obsługi Pythona, Jupytera i Gita. W repozytorium z materiałami kursu jest gotowy skrypt, który je zainstaluje. Zostań w swoim folderze — uruchom skrypt podając pełną ścieżkę:
+VS Code potrzebuje wtyczek do obsługi Pythona, Jupytera i Gita. Skopiuj poniższe komendy i wklej do PowerShell:
 
 ```powershell
-~\Desktop\python2-materialy\vscode-extensions.bat
+code --install-extension ms-python.python
+code --install-extension ms-toolsai.jupyter
+code --install-extension eamodio.gitlens
 ```
 
-Poczekaj aż skrypt się zakończy (instaluje 14 rozszerzeń). Na koniec zobaczysz podsumowanie, np. `Wynik: 14 zainstalowanych, 0 bledow`.
-
-> **Błąd „plik nie istnieje"?** Nie masz jeszcze materiałów kursu. Sklonuj je jedną komendą (nadal nie wychodząc z folderu):
-> ```powershell
-> git clone https://github.com/sp6jaz/python2-materialy.git ~\Desktop\python2-materialy
-> ```
-> Potem uruchom skrypt jak wyżej.
+Każda komenda wyświetli `Extension '...' is already installed` (jeśli już masz) albo zainstaluje wtyczkę. Trwa kilka sekund.
 
 > **Robiłeś to już na poprzednich zajęciach?** Pomiń ten krok — wtyczki instaluje się raz.
 
@@ -554,37 +550,21 @@ remote: Permission to [czyjes-repo] denied to [ktos-inny].
 fatal: unable to access ... : The requested URL returned error: 403
 ```
 
-**Rozwiązanie — uruchom skrypt naprawczy:**
+**Rozwiązanie — wklej te komendy w PowerShell (jesteś w `python2-lab`):**
 
-W repozytorium z materiałami kursu jest gotowy skrypt. W PowerShell:
 ```powershell
-cd ~\Desktop\python2-materialy
-.\git-fix-windows.bat
-```
-
-Skrypt:
-1. Wyczyści zapamiętane dane logowania do GitHuba z tego komputera
-2. Zapyta o Twoje imię i email (do commitów)
-3. Wyłączy zapamiętywanie haseł — od teraz **każdy push będzie pytał o token** (bezpieczniej na uczelni)
-
-Po uruchomieniu skryptu wróć do folderu ze swoim projektem i spróbuj ponownie:
-```powershell
-cd ~\Desktop\python2-lab
-git push
-```
-
-**Nie masz skryptu?** Możesz zrobić to ręcznie w PowerShell:
-```powershell
-# 1. Wyczyść zapisane hasła do GitHuba
+# 1. Wyczyść zapisane dane logowania poprzedniej osoby
 cmdkey /delete:git:https://github.com
-# 2. Ustaw swoje dane
+# 2. Ustaw SWOJE dane (zamień na swoje imię i email!)
 git config --global user.name "Twoje Imie Nazwisko"
 git config --global user.email "twoj@email.com"
-# 3. Wyłącz zapamiętywanie
+# 3. Wyłącz zapamiętywanie haseł (bezpieczniej na uczelni)
 git config --global --unset credential.helper
 # 4. Spróbuj ponownie
 git push
 ```
+
+Teraz `git push` zapyta o login i token — wpisz **swoje** dane.
 
 ### Sprawdzenie ✅
 
