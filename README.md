@@ -53,6 +53,20 @@ Materiały pojawiają się **tydzień po tygodniu** zgodnie z harmonogramem zaj�
 | W14 | 01.06.2026 | LLM i AI w analizie danych |
 | W15 | 08.06.2026 | Podsumowanie |
 
+### Logika kursu
+
+| Tydzień | Rola w kursie | Co umiesz po tym bloku |
+|---------|---------------|------------------------|
+| W01 | Warsztat | Git, VS Code, venv — narzędzia gotowe do pracy |
+| W02 | Panorama | Cały pipeline od pytania do decyzji — wiesz po co to wszystko |
+| W03–04 | Fundament | NumPy — szybkie obliczenia na tablicach danych |
+| W05–08 | Rdzeń kursu | Pandas — od wczytania danych po czyszczenie i agregację |
+| W09–10 | Wizualizacja | Matplotlib + Seaborn — wykresy i dashboardy |
+| W11–12 | Statystyka | Statystyka opisowa + testy hipotez |
+| W13 | Rozszerzenia | scikit-learn, Plotly — ML i interaktywne wykresy |
+| W14 | AI | LLM i API modeli w analizie danych |
+| W15 | Zamknięcie | Prezentacje mini-projektów, podsumowanie semestru |
+
 ## Szybki start
 
 ```bash
