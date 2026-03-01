@@ -234,6 +234,14 @@ __pycache__/
 
 ### Plik requirements.txt
 
+Utwórz plik `requirements.txt` tak samo jak `.gitignore`. W PowerShell wpisz:
+
+```powershell
+notepad requirements.txt
+```
+
+Wklej poniższą treść, zapisz (`Ctrl+S`) i zamknij Notatnik:
+
 ```
 numpy
 pandas
