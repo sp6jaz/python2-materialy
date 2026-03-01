@@ -9,7 +9,21 @@
 
 ## Przygotowanie stanowiska (zrób to PRZED ćwiczeniami)
 
-Zanim zaczniesz pracę, musisz uruchomić swoje środowisko. Jeśli na zajęciach W01/L01 utworzyłeś folder `moj-projekt` z plikami `.venv`, `.gitignore`, `README.md` — to właśnie jest Twój katalog roboczy. Jeśli nie pamiętasz gdzie go masz, poszukaj folderu w którym jest podfolder `.venv`.
+Zanim zaczniesz pracę, musisz uruchomić swoje środowisko.
+
+**Gdzie jest mój folder z projektem?** Na zajęciach L01 utworzyłeś folder (np. `moj-projekt`) z plikami `.venv`, `.gitignore`, `README.md`. Jeśli nie pamiętasz gdzie go masz — poszukaj folderu `.venv` na dysku.
+
+**Nie byłeś na L01 / nie masz folderu?** Utwórz go teraz:
+```powershell
+cd ~\Desktop
+mkdir moj-projekt
+cd moj-projekt
+uv venv
+.venv\Scripts\Activate.ps1
+uv pip install numpy pandas matplotlib jupyter ipykernel
+git init
+```
+Pełna instrukcja: [01_srodowisko_pracy.md na GitHubie](https://github.com/sp6jaz/python2-materialy/blob/master/dzienne/tydzien-01/wyklad/01_srodowisko_pracy.md)
 
 ### Windows — krok po kroku
 
@@ -499,7 +513,7 @@ git commit -m "L02: eksploracja datasetu tips — pipeline analityczny"
 git push
 ```
 
-Jeśli `git push` pyta o login/hasło — wpisz swoją nazwę użytkownika GitHub i token (nie hasło! szczegóły w materiałach W01).
+Jeśli `git push` pyta o login/hasło — wpisz swoją nazwę użytkownika GitHub i **token** (nie hasło!). Instrukcja tworzenia tokena: [jak_pracowac.md na GitHubie](https://github.com/sp6jaz/python2-materialy/blob/master/dzienne/tydzien-01/wyklad/jak_pracowac.md)
 
 ### Sprawdzenie ✅
 
