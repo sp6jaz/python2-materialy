@@ -7,6 +7,59 @@
 
 ---
 
+## Przygotowanie stanowiska (zrób to PRZED ćwiczeniami)
+
+Zanim zaczniesz pracę, musisz uruchomić swoje środowisko. Wykonaj poniższe kroki w **PowerShell** (Windows) lub **terminalu** (Linux/Mac):
+
+### Windows (PowerShell)
+
+```powershell
+# 1. Przejdź do katalogu z projektem (zmień ścieżkę na swoją!)
+cd C:\Users\TwojeImie\moj-projekt
+
+# 2. Aktywuj środowisko wirtualne
+.venv\Scripts\Activate.ps1
+```
+
+Po aktywacji zobaczysz `(.venv)` przed promptem — tak powinno wyglądać:
+```
+(.venv) PS C:\Users\TwojeImie\moj-projekt>
+```
+
+Jeśli **nie widzisz** `(.venv)` — środowisko nie jest aktywne! Sprawdź:
+- Czy jesteś w dobrym katalogu? (`ls` powinno pokazać folder `.venv`)
+- Czy środowisko istnieje? Jeśli nie — utwórz je: `uv venv`
+- Błąd "execution policy"? → `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser`
+
+### Linux / macOS
+
+```bash
+cd ~/moj-projekt
+source .venv/bin/activate
+```
+
+### Sprawdź czy pakiety są zainstalowane
+
+```
+python -c "import pandas; import matplotlib; print('Wszystko działa!')"
+```
+
+Jeśli widzisz **"Wszystko działa!"** — możesz zaczynać ćwiczenia.
+Jeśli widzisz `ModuleNotFoundError` — zainstaluj pakiety:
+```
+uv pip install numpy pandas matplotlib jupyter ipykernel
+```
+
+### Otwórz VS Code
+
+```
+code .
+```
+
+VS Code otworzy się w katalogu projektu. W panelu po lewej (Explorer) widzisz swoje pliki.
+
+---
+
 ## Przydatne materiały
 
 | Temat | Link |
@@ -32,6 +85,12 @@
 
 ---
 
+## Na wykładzie widzieliście `pipeline_demo.ipynb`
+
+Prowadzący pokazał kompletny pipeline analityczny — od pytania biznesowego do wykresu. Teraz **stworzycie własny notebook od zera** i przejdziecie podobny proces samodzielnie.
+
+---
+
 ## Ćwiczenie 1: Jupyter Notebook — opanuj narzędzie (20 min)
 
 ### Cel
@@ -39,14 +98,18 @@ Nauczysz się tworzyć notebook, używać komórek Code i Markdown, oraz poznasz
 
 ### Krok 1 — Utwórz notebook
 
-1. Otwórz VS Code w katalogu projektu
-2. `Ctrl+Shift+P` → wpisz "Create New Jupyter Notebook" → Enter
-3. Wybierz kernel: kliknij "Select Kernel" → Python Environments → `.venv`
-4. Zapisz jako `lab02_eksploracja.ipynb` (`Ctrl+S`)
+1. W VS Code kliknij w górnym menu: **View → Command Palette** (albo naciśnij `Ctrl+Shift+P`)
+   → pojawi się pasek tekstowy u góry ekranu
+2. Zacznij wpisywać: `Create New Jupyter Notebook` → gdy zobaczysz tę opcję, kliknij ją lub naciśnij Enter
+   → otworzy się nowy notebook z jedną pustą komórką
+3. W **prawym górnym rogu** notebooka zobaczysz przycisk **"Select Kernel"** — kliknij go
+   → wybierz **Python Environments** → wybierz pozycję z `.venv` w nazwie
+   → jeśli nie widzisz `.venv`: zamknij VS Code, aktywuj venv w terminalu, wpisz `code .` i spróbuj ponownie
+4. Zapisz notebook: `Ctrl+S` → nazwa: `lab02_eksploracja.ipynb`
 
 ### Krok 2 — Komórka kodu
 
-Wpisz w pierwszą komórkę i uruchom (`Shift+Enter`):
+Kliknij w pustą komórkę (zobaczysz migający kursor) i wpisz:
 
 ```python
 # Moja pierwsza komórka
@@ -54,12 +117,22 @@ print("Witaj w Jupyter Notebook!")
 2 + 2
 ```
 
-Zauważ: `print()` wypisuje tekst, ale notebook automatycznie wyświetla też wynik ostatniego wyrażenia (4).
+Naciśnij **Shift+Enter** żeby uruchomić komórkę.
+
+**Co powinieneś zobaczyć:**
+```
+Witaj w Jupyter Notebook!
+4
+```
+
+Dlaczego dwa wyniki? `print()` wypisuje tekst, a notebook automatycznie wyświetla też wynik **ostatniego wyrażenia** w komórce (tutaj: `2 + 2 = 4`).
 
 ### Krok 3 — Komórka Markdown
 
-1. Kliknij na pustą komórkę pod wynikiem
-2. Zmień typ na Markdown: kliknij "Code" w menu i wybierz "Markdown" (albo naciśnij `Esc` → `M`)
+Po uruchomieniu poprzedniej komórki pojawia się nowa pusta komórka pod wynikiem.
+
+1. Kliknij na tę nową komórkę
+2. Zmień jej typ na Markdown: w lewym górnym rogu komórki zobaczysz napis **"Code"** — kliknij go i wybierz **"Markdown"** z listy (alternatywnie: naciśnij `Esc` a potem klawisz `M`)
 3. Wpisz:
 
 ```markdown
@@ -72,11 +145,15 @@ Zauważ: `print()` wypisuje tekst, ale notebook automatycznie wyświetla też wy
 Wczytanie i eksploracja datasetu z danymi z restauracji.
 ```
 
-4. Uruchom (`Shift+Enter`) — komórka się sformatuje
+4. Naciśnij `Shift+Enter` — tekst Markdown zamieni się w sformatowany nagłówek, pogrubienia itp.
+
+**Co powinieneś zobaczyć:** Ładnie sformatowany tekst z dużym nagłówkiem "Laboratorium 2" i pogrubionym autorem. Jeśli nadal widzisz surowy tekst z `#` i `**` — upewnij się, że typ komórki to Markdown (nie Code).
 
 ### Krok 4 — Przećwicz skróty
 
-Wykonaj po kolei:
+Ważne: skróty klawiaturowe działają w **trybie komend** (niebieska/szara ramka wokół komórki). Żeby wejść w tryb komend, naciśnij `Esc`. Żeby wrócić do edycji, naciśnij `Enter`.
+
+Przećwicz każdy skrót po kolei:
 
 | Co zrobić | Jak |
 |-----------|-----|
@@ -101,20 +178,26 @@ Twój notebook ma przynajmniej:
 ## Ćwiczenie 2: Wczytanie i poznanie danych (25 min)
 
 ### Cel
-Wczytaj prawdziwy dataset i poznaj go używając metod Pandas.
+Wczytaj prawdziwy dataset i poznaj go używając metod Pandas. Nauczysz się wzorca, który będziesz powtarzać przy **każdej** analizie danych.
 
 ### Krok 1 — Import bibliotek
 
-Dodaj komórkę Markdown:
+Dodaj nową komórkę Markdown (Esc → B → M) i wpisz:
 ```markdown
 ## Krok 1: Import bibliotek
 ```
 
-Dodaj komórkę Code:
+Dodaj pod nią komórkę Code (Esc → B) i wpisz:
 ```python
 import pandas as pd
 import matplotlib.pyplot as plt
 ```
+
+Uruchom ją (Shift+Enter). Nic się nie wyświetli — i to jest OK! Import bibliotek nie produkuje wyniku, po prostu "otwiera skrzynkę z narzędziami".
+
+**Co oznacza ten kod:**
+- `import pandas as pd` — ładujesz bibliotekę Pandas i nadajesz jej skrót `pd`. Od teraz zamiast pisać `pandas.read_csv()` piszesz krótko `pd.read_csv()`
+- `import matplotlib.pyplot as plt` — ładujesz moduł do wykresów, skrót `plt`
 
 ### Krok 2 — Wczytaj dane
 
@@ -130,16 +213,33 @@ df = pd.read_csv('https://raw.githubusercontent.com/mwaskom/seaborn-data/master/
 print(f"Dane wczytane: {df.shape[0]} wierszy, {df.shape[1]} kolumn")
 ```
 
+**Co powinieneś zobaczyć:**
+```
+Dane wczytane: 244 wierszy, 7 kolumn
+```
+
+**Co oznacza ten kod:**
+- `pd.read_csv(...)` — wczytuje plik CSV (tabelka rozdzielona przecinkami) z podanego adresu URL
+- `df` — to nazwa zmiennej, w której trzymasz tabelę. Skrót od DataFrame. Możesz nazwać ją jak chcesz, ale `df` to konwencja
+- `df.shape` — zwraca krotkę `(wiersze, kolumny)`, więc `df.shape[0]` to liczba wierszy
+
+Jeśli zamiast wyniku widzisz **błąd** — sprawdź:
+- Czy masz internet? (dane pobierane z sieci)
+- Czy skopiowałeś cały URL? (musi zaczynać się od `https://`)
+- Czy uruchomiłeś komórkę z importem (Krok 1)?
+
 ### Krok 3 — Poznaj dane
 
 Dodaj komórkę Markdown: `## Krok 3: Poznanie danych`
 
-Każdą z poniższych metod uruchom w **osobnej komórce** (żeby widzieć wynik):
+Każdą z poniższych metod uruchom w **osobnej komórce** (żeby widzieć wynik). Dodajesz nową komórkę: Esc → B.
 
 ```python
-# Pierwsze 5 wierszy
+# Pierwsze 5 wierszy — ZAWSZE zacznij od tego!
 df.head()
 ```
+
+**Co zobaczysz:** Tabelka z 5 wierszami i 7 kolumnami. Każdy wiersz to jeden rachunek z restauracji. Przeczytaj nazwy kolumn — są po angielsku (total_bill = rachunek, tip = napiwek, itd.). Pełny opis kolumn znajdziesz w tabeli na górze tego dokumentu.
 
 ```python
 # Ostatnie 5 wierszy
@@ -151,13 +251,17 @@ df.tail()
 df.info()
 ```
 
+**Co zobaczysz:** Lista kolumn z typem danych (float64, int64, object) i liczbą niepustych wartości. Jeśli przy każdej kolumnie jest "244 non-null" — nie ma brakujących danych (w tym datasecie tak jest).
+
 ```python
-# Statystyki opisowe
+# Statystyki opisowe — podsumowanie liczbowe
 df.describe()
 ```
 
+**Co zobaczysz:** Tabelka ze statystykami: count (ile), mean (średnia), std (odchylenie standardowe), min, 25%/50%/75% (kwartyle), max. Np. średni rachunek to ~19.79 $, a najwyższy — 50.81 $.
+
 ```python
-# Typy danych
+# Typy danych w każdej kolumnie
 df.dtypes
 ```
 
@@ -190,16 +294,23 @@ Dodaj komórkę Markdown z wnioskami:
 ## Ćwiczenie 3: Pytania biznesowe (25 min)
 
 ### Cel
-Odpowiedz na pytania biznesowe korzystając z danych. To ćwiczenie wymaga samodzielnego myślenia.
+Odpowiedz na pytania biznesowe korzystając z danych. Tu zaczynasz myśleć jak analityk — **dostajesz pytanie, szukasz odpowiedzi w danych**.
 
 ### Kontekst
-Jesteś analitykiem w restauracji. Menedżer zadaje ci pytania. Odpowiedz używając kodu.
+Jesteś analitykiem w restauracji. Menedżer zadaje ci pytania — odpowiedz za pomocą kodu Python.
 
 Dodaj komórkę Markdown: `## Pytania biznesowe`
 
 ### Pytanie 1: Jaki był najwyższy rachunek?
 
-Podpowiedź: `df['nazwa_kolumny'].max()`
+Chcemy wyciągnąć jedną wartość z kolumny. Wzorzec:
+```python
+df['nazwa_kolumny'].max()    # największa wartość
+df['nazwa_kolumny'].min()    # najmniejsza wartość
+df['nazwa_kolumny'].mean()   # średnia
+```
+
+Zamień `nazwa_kolumny` na właściwą kolumnę (podpowiedź: rachunek po angielsku to `total_bill`):
 
 ```python
 # Pytanie 1: Najwyższy rachunek
@@ -208,7 +319,12 @@ Podpowiedź: `df['nazwa_kolumny'].max()`
 
 ### Pytanie 2: Ile rachunków obsłużono w każdym dniu tygodnia?
 
-Podpowiedź: `df['nazwa_kolumny'].value_counts()`
+Chcemy policzyć ile razy każda wartość występuje w kolumnie. Wzorzec:
+```python
+df['nazwa_kolumny'].value_counts()   # zlicza wystąpienia każdej wartości
+```
+
+Podpowiedź: kolumna z dniami tygodnia to `day`.
 
 ```python
 # Pytanie 2: Rachunki wg dnia
@@ -217,7 +333,14 @@ Podpowiedź: `df['nazwa_kolumny'].value_counts()`
 
 ### Pytanie 3: Jaki jest średni napiwek dla palaczy vs niepalących?
 
-Podpowiedź: `df.groupby('kolumna')['inna_kolumna'].mean()`
+Tu potrzebujemy pogrupować dane (jak tabela przestawna w Excelu). Wzorzec:
+```python
+df.groupby('kolumna_grupująca')['kolumna_liczbowa'].mean()
+```
+
+Tłumaczenie: "weź dane, pogrupuj je wg [kolumna_grupująca], i dla każdej grupy policz średnią z [kolumna_liczbowa]".
+
+Podpowiedź: palący/niepalący to kolumna `smoker`, napiwek to `tip`.
 
 ```python
 # Pytanie 3: Napiwki — palący vs niepalący
@@ -226,7 +349,12 @@ Podpowiedź: `df.groupby('kolumna')['inna_kolumna'].mean()`
 
 ### Pytanie 4: Jaki procent rachunku stanowi napiwek (średnio)?
 
-Podpowiedź: Stwórz nową kolumnę! `df['nowa'] = df['a'] / df['b'] * 100`
+Tu tworzymy **nową kolumnę** w DataFrame — obliczoną z dwóch istniejących. Wzorzec:
+```python
+df['nowa_kolumna'] = df['kolumna_a'] / df['kolumna_b'] * 100
+```
+
+Podpowiedź: napiwek to `tip`, rachunek to `total_bill`. Po stworzeniu kolumny użyj `.mean()` żeby policzyć średnią.
 
 ```python
 # Pytanie 4: Procent napiwku
@@ -235,12 +363,19 @@ Podpowiedź: Stwórz nową kolumnę! `df['nowa'] = df['a'] / df['b'] * 100`
 
 ### Pytanie 5: Który dzień + pora (Lunch/Dinner) przynosi najwyższe rachunki?
 
-Podpowiedź: `df.groupby(['kolumna1', 'kolumna2'])['kolumna3'].mean()`
+To jak pytanie 3, ale grupujesz po **dwóch kolumnach naraz**. Wzorzec:
+```python
+df.groupby(['kolumna1', 'kolumna2'])['kolumna_liczbowa'].mean()
+```
+
+Podpowiedź: dzień to `day`, pora to `time`, rachunek to `total_bill`.
 
 ```python
 # Pytanie 5: Dzień + pora → rachunki
 # Twój kod tutaj
 ```
+
+**Nie martw się jeśli nie udało się odpowiedzieć na wszystkie pytania.** Pytania 4 i 5 są trudniejsze — wrócisz do tych technik w kolejnych tygodniach i staną się naturalne.
 
 ### Sprawdzenie ✅
 
@@ -256,11 +391,13 @@ Oczekiwane odpowiedzi (sprawdź czy się zgadzają):
 ## Ćwiczenie 4: Pierwszy wykres + commit (10 min)
 
 ### Cel
-Stwórz wykres i wypchnij notebook na GitHub.
+Stwórz wykres i wypchnij notebook na GitHub — zamknij pętlę: kod → wynik → repozytorium.
 
 ### Krok 1 — Wykres
 
 Dodaj komórkę Markdown: `## Wizualizacja`
+
+Dodaj komórkę Code i wpisz (albo skopiuj — tym razem wolno!):
 
 ```python
 # Średni napiwek wg dnia tygodnia
@@ -270,10 +407,21 @@ plt.tight_layout()
 plt.show()
 ```
 
+Uruchom (Shift+Enter).
+
+**Co powinieneś zobaczyć:** Wykres słupkowy z 4 słupkami (Thur, Fri, Sat, Sun) — wysokość słupka to średni napiwek w danym dniu.
+
+**Co oznacza ten kod:**
+- `df.groupby('day')['tip'].mean()` — pogrupuj wg dnia i policz średni napiwek (znasz to z pytania 3!)
+- `.plot(kind='bar')` — narysuj wykres słupkowy
+- `plt.ylabel(...)` — dodaj podpis osi Y
+- `plt.tight_layout()` — dopasuj marginesy żeby nic nie było ucięte
+- `plt.show()` — wyświetl wykres
+
 ### Krok 2 — Bonus: drugi wykres (jeśli masz czas)
 
 ```python
-# Rozkład rachunków
+# Rozkład rachunków — histogram
 df['total_bill'].plot(kind='hist', bins=20, title='Rozkład kwot rachunków', edgecolor='black')
 plt.xlabel('Rachunek ($)')
 plt.ylabel('Liczba rachunków')
@@ -281,18 +429,32 @@ plt.tight_layout()
 plt.show()
 ```
 
+**Co zobaczysz:** Histogram — oś X to kwota rachunku, oś Y to ile rachunków miało taką kwotę. Większość rachunków jest w zakresie 10-25 $.
+
 ### Krok 3 — Zapisz i commituj
 
-```bash
+Zapisz notebook w VS Code (`Ctrl+S`), potem otwórz **terminal** w VS Code (menu: Terminal → New Terminal) lub wróć do PowerShell:
+
+```powershell
+# Windows (PowerShell)
 git add lab02_eksploracja.ipynb
 git commit -m "L02: eksploracja datasetu tips — pipeline analityczny"
 git push
 ```
 
+```bash
+# Linux / macOS
+git add lab02_eksploracja.ipynb
+git commit -m "L02: eksploracja datasetu tips — pipeline analityczny"
+git push
+```
+
+Jeśli `git push` pyta o login/hasło — wpisz swoją nazwę użytkownika GitHub i token (nie hasło! szczegóły w materiałach W01).
+
 ### Sprawdzenie ✅
 
-- Na GitHubie widać notebook `lab02_eksploracja.ipynb`
-- GitHub renderuje notebook z kodem, wynikami i wykresami
+- Wejdź na **github.com** → Twoje repozytorium → plik `lab02_eksploracja.ipynb` powinien być widoczny
+- GitHub **renderuje notebooki** — zobaczysz kod, wyniki i wykresy bezpośrednio w przeglądarce
 - Notebook zawiera komórki Markdown z opisami (nie sam kod!)
 
 ---
