@@ -146,6 +146,8 @@ git config --global user.email "twoj@email.com"
 
 ## 6. Tworzenie projektu — pełny workflow
 
+Otwórz **PowerShell**: naciśnij klawisz **Windows** na klawiaturze, wpisz `PowerShell`, naciśnij **Enter**.
+
 ### Krok po kroku
 
 ```bash
@@ -184,6 +186,14 @@ moj-projekt/
 ```
 
 ### Plik .gitignore (obowiązkowy!)
+
+Utwórz plik `.gitignore` w folderze projektu. W PowerShell wpisz:
+
+```powershell
+notepad .gitignore
+```
+
+Otworzy się Notatnik. Wklej poniższą treść, zapisz (`Ctrl+S`) i zamknij Notatnik:
 
 ```
 .venv/
