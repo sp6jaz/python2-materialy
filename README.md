@@ -24,9 +24,6 @@ dzienne/          ← studia stacjonarne (15 tygodni)
   tydzien-01/     ← materiały z 1. tygodnia
   tydzien-02/     ← materiały z 2. tygodnia
   ...
-zaoczne/          ← studia niestacjonarne (10 zjazdów)
-  zjazd-01/       ← materiały z 1. zjazdu
-  ...
 skrypt/           ← skrypt do samodzielnej nauki
 ```
 
