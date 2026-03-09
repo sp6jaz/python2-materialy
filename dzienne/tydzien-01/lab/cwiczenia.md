@@ -280,7 +280,10 @@ source .venv/bin/activate
 ```powershell
 .venv\Scripts\Activate.ps1
 ```
-
+W przypadku błędów spróbuj: 
+```powershell
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+```
 Powinieneś zobaczyć `(.venv)` na początku wiersza poleceń.
 
 ### Krok 3 — Zainstaluj pakiety
