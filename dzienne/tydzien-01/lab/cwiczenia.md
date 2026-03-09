@@ -378,12 +378,19 @@ print(f"Odchylenie standardowe: {dane.std():.2f}")
 Przygotuj repozytorium na pracę przez cały semestr — foldery na laboratoria + udostępnienie prowadzącemu.
 
 ### Krok 1 — Utwórz foldery na wszystkie laboratoria
-
+Linuks
 ```bash
 cd ~/python2-lab
 
 # Utwórz foldery na każde laboratorium + projekt
 mkdir -p lab01 lab02 lab03 lab04 lab05 lab06 lab07 lab08 lab09 lab10 lab11 lab12 lab13 lab14 projekt
+```
+Windows
+```bash
+cd ~/python2-lab
+
+# Utwórz foldery na każde laboratorium + projekt
+mkdir -p lab01, lab02, lab03, lab04, lab05, lab06, lab07, lab08, lab09, lab10, lab11, lab12, lab13, lab14, projekt
 ```
 
 ### Krok 2 — Przenieś dotychczasowe pliki
