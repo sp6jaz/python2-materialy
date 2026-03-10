@@ -423,7 +423,7 @@ https://github.com/TWÓJ-LOGIN/python2-lab
 **Opcja B — Repozytorium prywatne:**
 1. Na GitHubie: otwórz repozytorium → **Settings** → **Collaborators**
 2. Kliknij **Add people**
-3. Wpisz login: **sp6jaz**
+3. Wpisz login: **M-Wlodarz**
 4. Prowadzący zaakceptuje zaproszenie
 
 ### Krok 5 — Wyślij link do repozytorium
