@@ -233,8 +233,8 @@ Każde zadanie w osobnej komórce z komentarzem Markdown.
 
 **Zadanie 3:** Analiza cenowa
 ```python
-# Ceny po rabacie 15% (promocja świąteczna)
-# Ceny z VAT 23%
+# Stworz array z cenami po rabacie 15% (promocja świąteczna)
+# Stworz array z cenami po uwzględnieniu VAT 23%
 # Ile produktów kosztuje powyżej 1000 zł?
 # Podpowiedź: rabat = ceny * 0.85, VAT = ceny * 1.23, zliczanie: (warunek).sum()
 ```
