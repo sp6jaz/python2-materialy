@@ -79,8 +79,8 @@ print(f"Dziesiątki: {dziesiatki}")
 
 ```python
 # 5. 7 równomiernych punktów od 0 do 1
-procenty = np.linspace(0, 1, 7)
-print(f"Procenty: {procenty}")
+ulamki = np.linspace(0, 1, 7)
+print(f"Ulamki: {ulamki}")
 ```
 
 ```python
