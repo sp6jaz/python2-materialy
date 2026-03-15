@@ -34,10 +34,11 @@ dzienne/          ← studia stacjonarne (15 tygodni)
   tydzien-01/     ← materiały z 1. tygodnia
   tydzien-02/     ← materiały z 2. tygodnia
   ...
-skrypt/           ← skrypt do samodzielnej nauki
 ```
 
 Materiały pojawiają się **tydzień po tygodniu** zgodnie z harmonogramem zajęć.
+
+> **Skrypt do samodzielnej nauki** — w przygotowaniu, pojawi się w trakcie semestru.
 
 ## Harmonogram — studia dzienne (poniedziałki)
 
