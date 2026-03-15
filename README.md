@@ -8,6 +8,16 @@
 
 Kurs uczy praktycznego wykorzystania Pythona w analizie danych biznesowych. Poznasz profesjonalne narzędzia i biblioteki używane w branży.
 
+## Jak wygląda semestr?
+
+Kurs składa się z dwóch faz:
+
+1. **W01–W10: Wspólne ćwiczenia** — wszyscy pracują na tych samych danych, poznając kolejne narzędzia (NumPy, Pandas, wykresy). Każdy tydzień dodaje nową umiejętność.
+2. **W11–W14: Mini-projekt** — wybierasz własny dataset i stosujesz wszystkie poznane techniki: czyszczenie, analiza, wizualizacja, statystyka.
+3. **W15: Prezentacja** — pokazujesz swój mini-projekt grupie.
+
+Cały kod i wyniki trzymasz w swoim repozytorium na GitHubie — na koniec masz gotowe portfolio.
+
 ## Narzędzia
 
 | Narzędzie | Do czego |
@@ -48,7 +58,7 @@ Materiały pojawiają się **tydzień po tygodniu** zgodnie z harmonogramem zaj�
 | W12 | 18.05.2026 | Statystyka — rozkłady i testy |
 | W13 | 25.05.2026 | Zaawansowane biblioteki |
 | W14 | 01.06.2026 | LLM i AI w analizie danych |
-| W15 | 08.06.2026 | Podsumowanie |
+| W15 | 08.06.2026 | Prezentacje mini-projektów |
 
 ### Logika kursu
 
@@ -59,9 +69,9 @@ Materiały pojawiają się **tydzień po tygodniu** zgodnie z harmonogramem zaj�
 | W03–04 | Fundament | NumPy — szybkie obliczenia na tablicach danych |
 | W05–08 | Rdzeń kursu | Pandas — od wczytania danych po czyszczenie i agregację |
 | W09–10 | Wizualizacja | Matplotlib + Seaborn — wykresy i dashboardy |
-| W11–12 | Statystyka | Statystyka opisowa + testy hipotez |
-| W13 | Rozszerzenia | scikit-learn, Plotly — ML i interaktywne wykresy |
-| W14 | AI | LLM i API modeli w analizie danych |
+| W11–12 | Statystyka | Statystyka opisowa + testy hipotez — na własnym datasecie |
+| W13 | Rozszerzenia | scikit-learn, Plotly — mini-projekt |
+| W14 | AI | LLM i AI w analizie danych — mini-projekt |
 | W15 | Zamknięcie | Prezentacje mini-projektów, podsumowanie semestru |
 
 ## Szybki start
