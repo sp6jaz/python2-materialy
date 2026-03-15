@@ -53,6 +53,10 @@ echo ============================================
 echo  Wynik: %OK% zainstalowanych, %FAIL% bledow
 echo  Zrestartuj VS Code (Ctrl+Shift+P, Reload Window)
 echo ============================================
+echo.
+echo  UWAGA: Aby notebooki dzialaly, zainstaluj pakiety Pythona:
+echo    uv pip install -r requirements.txt
+echo.
 pause
 exit /b 0
 
