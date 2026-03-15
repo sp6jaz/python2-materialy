@@ -91,7 +91,7 @@ source .venv/bin/activate       # Linux/macOS
 # .venv\Scripts\Activate.ps1    # Windows
 
 # 4. Zainstaluj pakiety
-uv pip install numpy pandas matplotlib seaborn scipy jupyter ipykernel
+uv pip install -r requirements.txt
 ```
 
 ## Kontakt
