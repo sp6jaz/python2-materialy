@@ -7,6 +7,17 @@
 
 ---
 
+## Po tym laboratorium potrafisz:
+
+1. **Stosować** broadcasting do obliczeń na danych różnych kształtów (Bloom 3)
+2. **Zmieniać** kształt tablic z reshape i łączyć dane ze stacking (Bloom 3)
+3. **Analizować** dane finansowe stosując `np.where`, `argsort`, korelację (Bloom 4)
+4. **Generować** realistyczne dane syntetyczne do symulacji biznesowych (Bloom 3)
+
+Na wykładzie poznaliście broadcasting, reshape i zaawansowane operacje NumPy. Teraz przećwiczycie to na danych biznesowych — ceny produktów, wynagrodzenia, sprzedaż.
+
+---
+
 ## Start — 3 komendy
 
 Otwórz terminal w VS Code i wpisz:
