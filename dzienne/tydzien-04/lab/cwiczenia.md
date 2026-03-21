@@ -180,7 +180,7 @@ sprzedaz_flat = np.array([100, 200, 150, 300, 250, 180, 120, 220, 170, 310, 260,
 
 - 2a: Najlepszy kwartał: Q4 (suma 562)
 - 2b: Suma per oddział: Warszawa=660, Kraków=540, Wrocław=420
-- 2c: Średnia per produkt: [110, 260, 210, 145, 240, 185]
+- 2c: Średnia per produkt: [150, 225, 215, 170, 240, 225]
 - 2d: Po concatenate — tablica 13-elementowa
 
 ---
@@ -211,16 +211,16 @@ ceny_produktow = np.array([3500, 1800, 2500, 150])
 
 **Zadanie 3a: Analiza wynagrodzeń**
 ```python
-# 1. Średnia, mediana, std pensji
+# 1. Oblicz średnią, medianę i odchylenie standardowe pensji
 # Podpowiedź: pensje.mean(), np.median(pensje), pensje.std()
 
-# 2. Kto zarabia powyżej średniej? (nazwy)
+# 2. Wyświetl imiona osób zarabiających powyżej średniej
 # Uwaga: pracownicy to lista — zamień na np.array(pracownicy), żeby użyć maski
 # Podpowiedź: nazwy = np.array(pracownicy), potem nazwy[pensje > pensje.mean()]
 
-# 3. Kto zarabia poniżej mediany? (nazwy)
+# 3. Wyświetl imiona osób zarabiających poniżej mediany
 
-# 4. Rozstęp (max - min) i IQR
+# 4. Oblicz rozstęp (max - min) i rozstęp międzykwartylowy (IQR)
 # Podpowiedź: IQR = np.percentile(pensje, 75) - np.percentile(pensje, 25)
 ```
 
@@ -270,7 +270,7 @@ ceny_produktow = np.array([3500, 1800, 2500, 150])
 
 ### Sprawdzenie ✅
 
-- 3a: Średnia pensji = 6425.0 zł, IQR = 2500.0 zł
+- 3a: Średnia pensji = 6425.0 zł, IQR = 2200.0 zł
 - 3b: Ewa i Kasia dostają premię 2000 zł (oceny 4.5 i 4.7)
 - 3c: Pierwszy w rankingu — Marek (9100 zł, staż 15 lat)
 - 3d: Korelacja staż-pensja powinna być dodatnia (wyższy staż = wyższa pensja)
