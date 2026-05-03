@@ -614,7 +614,7 @@ ax.annotate(
     fontsize=11, color='red', fontweight='bold',
 )
 
-ax.set_title('Łączne przychody wg dnia — adnotacja szczytu')
+# Tytuł celowo pominięty — adnotacja 'Szczyt: $...' sama w sobie informuje o czym wykres
 ax.set_xlabel('Dzień tygodnia')
 ax.set_ylabel('Suma rachunków (USD)')
 sns.despine()                     # usuwa górną i prawą krawędź osi (minimalistyczny styl)
